@@ -1,15 +1,17 @@
-import useNowPLayingMovies from "../Hooks/useNowPlayingHook";
+import useNowPlayingMovies from "../Hooks/useNowPlayingHook";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondContainer from "./SecondaryContainer";
 
 const Browse = () => {
-useNowPLayingMovies()
+  const { loading, movies } = useNowPlayingMovies();
+
+  if (loading) return <h1>Loading movies</h1>;
   return (
     <div>
       <Header />
-      <MainContainer/>
-      <SecondContainer/>
+      <MainContainer />
+      <SecondContainer />
     </div>
   );
 };

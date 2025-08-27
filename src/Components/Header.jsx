@@ -10,6 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
   const userInfo = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  console.log("header render",userInfo)
 
   const onbtnSignOutClick = () => {
     signOut(auth)
@@ -27,7 +28,8 @@ const Header = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
-        // console.log("User signed in:", user);
+        // console.log("User signed in:", user);console.log
+        console.log("onAuthstatechange called",user)
         dispatch(
           addUser({
             uid: uid,

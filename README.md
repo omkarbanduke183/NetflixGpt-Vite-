@@ -17,6 +17,15 @@ In this project I'm building netflix clone and use Chatgpt api for suggestion
 - Implemented Sign out
 - Update userProfile with displayName and photoURL
 - BugFix: if user is not logged in redirect /browse to login and vise-versa
+- Unsubscribed ti the onAuthStateChange callback
+- Add hardcoded values to the constan files
+- Register TMDB Api and get access token
+- Get data form TMDB api for now playing movies
+- Create movie slice in redux store and add now playing movies data
+- Create Main and Secondary container
+- In main container add VIdeoTitle and VideoBackground comp
+- Get trailer video from TMDB api to VideoBackground API and update store with trailer video data
+- Embed video from video 
 
 
 # Features
