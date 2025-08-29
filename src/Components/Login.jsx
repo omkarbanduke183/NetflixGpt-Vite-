@@ -9,7 +9,7 @@ import {
 import { auth } from "../utils/Firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { USER_AVATAR } from "../utils/constants";
+import { NETFLIX_BG_IMAGE, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignIN, setIsSignIn] = useState(true);
@@ -101,7 +101,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/258d0f77-2241-4282-b613-8354a7675d1a/web/IN-en-20250721-TRIFECTA-perspective_cadc8408-df6e-4313-a05d-daa9dcac139f_small.jpg"
+          src={NETFLIX_BG_IMAGE}
           alt="logo"
         />
       </div>
