@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { applanguage, NETFLIX_LOGO } from "../utils/constants";
-import { changeGptVisible } from "../utils/gptSlice";
+import { changeGptVisible, removeGptMovies } from "../utils/gptSlice";
 import { changeAppLanguage } from "../utils/appConfigSlice";
 
 const Header = () => {
@@ -53,6 +53,7 @@ const Header = () => {
 
   const onBtnGptSearchClick = () => {
     dispatch(changeGptVisible());
+    dispatch(removeGptMovies())
   };
   const changeLanguage = (e) => {
     console.log("language change", e.target.value);

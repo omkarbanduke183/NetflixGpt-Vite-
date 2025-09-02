@@ -6,7 +6,7 @@ import { NETFLIX_BG_IMAGE } from "../utils/constants";
 const GptComponent = () => {
   return (
     <div>
-      <div className="absolute -z-20">
+      <div className="fixed -z-20">
         <img src={NETFLIX_BG_IMAGE} alt="logo" />
       </div>
       <GptInput />

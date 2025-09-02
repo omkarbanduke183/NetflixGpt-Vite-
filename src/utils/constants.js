@@ -11,8 +11,7 @@ export const API_OPTION = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNjc5NzlhN2Q2ZWQ5YWE2MTkyOWI5ZWI1NmU0NmE4ZCIsIm5iZiI6MTcwODQ0MDk3MS45MDUsInN1YiI6IjY1ZDRiZDhiNTZiOWY3MDE0OGIxMTJlMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BiS7IEURfHUZsWtX82V6kMVU6DyALz2THbxRAzzLgHA",
+    Authorization: "Bearer " + import.meta.env.VITE_TMDB_API_KEY,
   },
 };
 
@@ -26,3 +25,5 @@ export const applanguage = [
   { identity: "hindi", language: "Hindi" },
   { identity: "marathi", language: "Marathi" },
 ];
+
+export const OPEN_AI_KEY = import.meta.env.VITE_OPEN_AI_KEY;
