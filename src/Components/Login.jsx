@@ -44,8 +44,7 @@ const Login = () => {
           console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              USER_AVATAR,
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -101,13 +100,14 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
+          className="h-screen w-screen object-cover"
           src={NETFLIX_BG_IMAGE}
           alt="logo"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" w-1/3 p-12 text-white absolute rounded-lg  my-36 mx-auto right-0 left-0  bg-black/70"
+        className=" w-full md:w-1/3 p-12 text-white absolute rounded-lg  my-36 mx-auto right-0 left-0  bg-black/70"
       >
         <h1 className="text-2xl font-bold">
           {isSignIN ? "Sign In" : "Sign Up"}

@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTION, NOW_PLAYING_MOVIES_URL } from "../utils/constants";
 import { addNowPlayingMovies } from "../utils/moviesSlice";
 import { useCallback, useEffect, useState } from "react";
@@ -7,11 +7,13 @@ const useNowPlayingMovies = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState(null);
   const dispatch = useDispatch();
+  const nowPlayingMovie = useSelector((store) => store.movies.nowPlayingMovie);
 
   const getNowPlayingMovies = useCallback(async () => {
     //3
     try {
       console.log("inside now playing movies");
+      console.log(NOW_PLAYING_MOVIES_URL, API_OPTION)
       const res = await fetch(NOW_PLAYING_MOVIES_URL, API_OPTION); //4
       const data = await res.json();
       console.log(data);
@@ -26,7 +28,7 @@ const useNowPlayingMovies = () => {
   useEffect(() => {
     //1
     console.log("inside use effect of now playing movies");
-    getNowPlayingMovies(); //2
+    !nowPlayingMovie && getNowPlayingMovies(); //2
   }, []);
 
   return { loading, movies };

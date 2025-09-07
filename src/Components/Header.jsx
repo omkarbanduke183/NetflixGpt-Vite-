@@ -7,6 +7,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { applanguage, NETFLIX_LOGO } from "../utils/constants";
 import { changeGptVisible, removeGptMovies } from "../utils/gptSlice";
 import { changeAppLanguage } from "../utils/appConfigSlice";
+import { removeMoviesData } from "../utils/moviesSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,6 +24,8 @@ const Header = () => {
       .catch((error) => {
         // An error happened.
       });
+      dispatch(removeMoviesData())
+      dispatch(removeGptMovies())
   };
 
   useEffect(() => {
@@ -53,17 +56,21 @@ const Header = () => {
 
   const onBtnGptSearchClick = () => {
     dispatch(changeGptVisible());
-    dispatch(removeGptMovies())
+    dispatch(removeGptMovies());
   };
   const changeLanguage = (e) => {
     console.log("language change", e.target.value);
     dispatch(changeAppLanguage(e.target.value));
   };
   return (
-    <div className="absolute z-10 w-screen flex justify-between bg-gradient-to-b from-black">
-      <img className="w-48 " src={NETFLIX_LOGO} alt="logo" />
+    <div className="absolute z-10 w-screen flex flex-col md:flex-row  justify-between bg-gradient-to-b from-black">
+      <img
+        className="w-30 md:w-48 mx-auto md:mx-0 "
+        src={NETFLIX_LOGO}
+        alt="logo"
+      />
       {userInfo && (
-        <div className="flex ">
+        <div className="flex ml-8 md:ml-0">
           {isGptVisible && (
             <select
               className="bg-gray-600 px-2 text-white mt-4 mr-3 h-8 text-xs"
@@ -76,19 +83,26 @@ const Header = () => {
               ))}
             </select>
           )}
-          <h3 className="py-4  font-bold text-white">{userInfo.displayName}</h3>
+          <h3 className="py-4 hidden md:block font-bold mr-2 text-white">
+            {userInfo.displayName}
+          </h3>
           <button
-            className="bg-purple-600 text-white rounded-lg h-10 px-2 mx-3 my-2 cursor-pointer"
+            className={`bg-purple-600 text-white rounded-lg h-8 md:h-10 px-2 mx-3 my-4 md:my-2 cursor-pointer ${
+              !isGptVisible ? "ml-20 md:ml-0 " : ""
+            }`}
             onClick={onBtnGptSearchClick}
           >
             {isGptVisible ? "HomePage" : "GPT Search"}
           </button>
-          <img className="w-10 h-10 mt-2 rounded-lg" src={userInfo?.photoURL} />
+          <img
+            className="w-10 h-10 mt-2 hidden md:block rounded-lg"
+            src={userInfo?.photoURL}
+          />
           <button
             onClick={onbtnSignOutClick}
-            className="font-bold text-white pb-7 pl-2 cursor-pointer"
+            className="font-bold bg-red-500 text-white rounded-lg h-8 md:h-10 px-2 mx-3 my-4 md:my-2 md:mr-5 cursor-pointer"
           >
-            (Sign Out)
+            Sign Out
           </button>
         </div>
       )}

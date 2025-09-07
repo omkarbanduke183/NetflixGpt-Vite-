@@ -38,19 +38,19 @@ const GptInput = () => {
     console.log("gptMoviesResult", gptMoviesResults);
   };
   return (
-    <div className="flex justify-center pt-32 ">
+    <div className="flex justify-center pt-28 md:pt-32 ">
       <form
-        className="w-1/2 grid grid-cols-12 p-3 m-3 bg-black/0"
+        className="w-full md:w-1/2 grid grid-cols-12 p-3 m-3 bg-black/0"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchText}
-          className="bg-white col-span-10 px-3 py-4 mx-2 my-4 rounded-lg"
+          className="bg-white col-span-8 h-8 md:h-14 md:col-span-10 px-3 py-4 mx-2 my-4 rounded-lg"
           placeholder={languageData[language].placeholder}
           type="text"
         />
         <button
-          className=" mr-3 h-14.5 mt-3.5 col-span-2 w-30 bg-red-600 rounded-lg"
+          className=" mr-3 h-8.5 md:h-14 mt-3.5 col-span-2 w-30 bg-red-600 rounded-lg"
           onClick={onBtnSearchClick}
         >
           {languageData[language].search}

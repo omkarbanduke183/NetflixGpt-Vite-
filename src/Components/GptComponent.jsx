@@ -5,13 +5,15 @@ import { NETFLIX_BG_IMAGE } from "../utils/constants";
 
 const GptComponent = () => {
   return (
-    <div>
+    <>
       <div className="fixed -z-20">
-        <img src={NETFLIX_BG_IMAGE} alt="logo" />
+        <img className="h-screen w-screen object-cover" src={NETFLIX_BG_IMAGE} alt="logo" />
       </div>
-      <GptInput />
-      <GptResult />
-    </div>
+      <div>
+        <GptInput />
+        <GptResult />
+      </div>
+    </>
   );
 };
 
